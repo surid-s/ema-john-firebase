@@ -1,20 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
+import './Login.css'
 
 const Login = () => {
+    const { user, signInUsingGoogle } = useFirebase();
     return (
-        <div>
+        <div className='login-item'>
             <div>
                 <h2>Please Login</h2>
                 <form onSubmit="" action="">
                     <input type="email" name="Email" id="" placeholder='Your Email' />
+                    <br />
                     <input type="password" name="Password" id="" placeholder='Your Password' />
+                    <br />
                     <input type="submit" value="Submit" />
                 </form>
                 <small>New to Ema-John? <Link to="/register">Create Account.</Link></small>
 
                 <div>--------or-----------</div>
-                <button className="btn-regular">
+                <button onClick={signInUsingGoogle} className="btn-regular">
                     Sign In with Google
                 </button>
             </div>
